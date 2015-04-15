@@ -14,6 +14,10 @@
 		0F3EF8EE1ADEECD9000A97FF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F3EF8ED1ADEECD9000A97FF /* Images.xcassets */; };
 		0F3EF8F11ADEECD9000A97FF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3EF8EF1ADEECD9000A97FF /* LaunchScreen.xib */; };
 		0F3EF8FD1ADEECD9000A97FF /* MBCollectionViewExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF8FC1ADEECD9000A97FF /* MBCollectionViewExampleTests.m */; };
+		0F3EF90A1ADEEDE1000A97FF /* MBCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF9091ADEEDE1000A97FF /* MBCollectionView.m */; };
+		0F3EF90E1ADEF0BF000A97FF /* UIView+MBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF90D1ADEF0BF000A97FF /* UIView+MBView.m */; };
+		0F3EF9111ADF0C29000A97FF /* MBCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF9101ADF0C29000A97FF /* MBCollectionViewCell.m */; };
+		0F3EF9151ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF9141ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,14 @@
 		0F3EF8F61ADEECD9000A97FF /* MBCollectionViewExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MBCollectionViewExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F3EF8FB1ADEECD9000A97FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F3EF8FC1ADEECD9000A97FF /* MBCollectionViewExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBCollectionViewExampleTests.m; sourceTree = "<group>"; };
+		0F3EF9081ADEEDE1000A97FF /* MBCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionView.h; sourceTree = "<group>"; };
+		0F3EF9091ADEEDE1000A97FF /* MBCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollectionView.m; sourceTree = "<group>"; };
+		0F3EF90C1ADEF0BF000A97FF /* UIView+MBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MBView.h"; sourceTree = "<group>"; };
+		0F3EF90D1ADEF0BF000A97FF /* UIView+MBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MBView.m"; sourceTree = "<group>"; };
+		0F3EF90F1ADF0C29000A97FF /* MBCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionViewCell.h; sourceTree = "<group>"; };
+		0F3EF9101ADF0C29000A97FF /* MBCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollectionViewCell.m; sourceTree = "<group>"; };
+		0F3EF9131ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionViewExampleDataSource.h; sourceTree = "<group>"; };
+		0F3EF9141ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollectionViewExampleDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +93,10 @@
 		0F3EF8DF1ADEECD9000A97FF /* MBCollectionViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				0F3EF9121ADF0FD4000A97FF /* MBCollectionViewDataSources */,
+				0F3EF90B1ADEF096000A97FF /* Categories */,
+				0F3EF9061ADEED73000A97FF /* MBCollectionView */,
+				0F3EF9071ADEED73000A97FF /* MBCollectionViewCells */,
 				0F3EF8E41ADEECD9000A97FF /* AppDelegate.h */,
 				0F3EF8E51ADEECD9000A97FF /* AppDelegate.m */,
 				0F3EF8E71ADEECD9000A97FF /* ViewController.h */,
@@ -117,6 +133,42 @@
 				0F3EF8FB1ADEECD9000A97FF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0F3EF9061ADEED73000A97FF /* MBCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				0F3EF9081ADEEDE1000A97FF /* MBCollectionView.h */,
+				0F3EF9091ADEEDE1000A97FF /* MBCollectionView.m */,
+			);
+			path = MBCollectionView;
+			sourceTree = "<group>";
+		};
+		0F3EF9071ADEED73000A97FF /* MBCollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				0F3EF90F1ADF0C29000A97FF /* MBCollectionViewCell.h */,
+				0F3EF9101ADF0C29000A97FF /* MBCollectionViewCell.m */,
+			);
+			path = MBCollectionViewCells;
+			sourceTree = "<group>";
+		};
+		0F3EF90B1ADEF096000A97FF /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0F3EF90C1ADEF0BF000A97FF /* UIView+MBView.h */,
+				0F3EF90D1ADEF0BF000A97FF /* UIView+MBView.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		0F3EF9121ADF0FD4000A97FF /* MBCollectionViewDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				0F3EF9131ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.h */,
+				0F3EF9141ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m */,
+			);
+			path = MBCollectionViewDataSources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +271,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F3EF9151ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m in Sources */,
 				0F3EF8E91ADEECD9000A97FF /* ViewController.m in Sources */,
+				0F3EF9111ADF0C29000A97FF /* MBCollectionViewCell.m in Sources */,
 				0F3EF8E61ADEECD9000A97FF /* AppDelegate.m in Sources */,
 				0F3EF8E31ADEECD9000A97FF /* main.m in Sources */,
+				0F3EF90E1ADEF0BF000A97FF /* UIView+MBView.m in Sources */,
+				0F3EF90A1ADEEDE1000A97FF /* MBCollectionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +472,7 @@
 				0F3EF9021ADEECD9000A97FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0F3EF9031ADEECD9000A97FF /* Build configuration list for PBXNativeTarget "MBCollectionViewExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +481,7 @@
 				0F3EF9051ADEECD9000A97FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
