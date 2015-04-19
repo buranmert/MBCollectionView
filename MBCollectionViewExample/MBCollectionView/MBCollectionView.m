@@ -70,7 +70,8 @@ static const CGFloat kMBCollectionViewHeightThreshold = 40.f;
     [self.itemHeightsArray removeAllObjects];
     [self.itemViewPool removeAllObjects];
     [self.scrollView removeAllSubviewsOfClass:[MBCollectionViewCell class]];
-    [self.scrollView setContentOffset:CGPointZero animated:NO];
+    CGPoint initialPoint = CGPointMake(-self.scrollView.contentInset.left, -self.scrollView.contentInset.top);
+    [self.scrollView setContentOffset:initialPoint animated:NO];
 }
 
 - (void)reloadCollectionViewWithCompletionHandler:(void (^)())completion {
