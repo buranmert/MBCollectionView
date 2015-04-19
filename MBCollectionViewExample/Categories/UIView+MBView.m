@@ -42,6 +42,12 @@
     [self setFrame:frame];
 }
 
+- (void)setHeight:(CGFloat)height {
+    CGRect frame = self.frame;
+    frame.size.height = height;
+    [self setFrame:frame];
+}
+
 - (void)removeAllSubviewsOfClass:(Class)aClass {
     NSArray *copySubviewsArray = [self.subviews copy];
     for (UIView *subview in copySubviewsArray) {

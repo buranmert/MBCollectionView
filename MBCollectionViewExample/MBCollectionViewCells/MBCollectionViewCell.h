@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MBCollectionViewCell : UIView
-@property (nonatomic, strong) NSString *reuseTag;
-
-#warning MUST BE A READONLY PROPERTY!!! MUST BE FIXED!!!
+@property (nonatomic, weak) UILabel *textLabel;
 @property (nonatomic) NSUInteger rowIndex;
+- (void)prepareForReuse;
++ (UIColor *)customBackgroundColor;
 @end

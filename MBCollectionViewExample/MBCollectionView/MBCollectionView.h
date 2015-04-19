@@ -7,19 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBCollectionViewDataSource.h"
 
 @class MBCollectionViewCell;
 
-typedef NSUInteger MBRow;
-
-@protocol MBCollectionViewDataSource <NSObject>
-
-- (MBRow)rowCount;
-- (MBCollectionViewCell *)viewForRow:(MBRow)row;
-
-@end
-
 @interface MBCollectionView : UIView
 @property (nonatomic, weak) IBOutlet id<MBCollectionViewDataSource> dataSource;
-- (MBCollectionView *)dequeueReusableCell;
+- (MBCollectionViewCell *)dequeueReusableCellForRow:(MBRow)row forClass:(Class)aClass;
+- (void)reloadCollectionViewWithCompletionHandler:(void (^)())completion;
 @end

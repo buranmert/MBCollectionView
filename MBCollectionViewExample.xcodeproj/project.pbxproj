@@ -18,6 +18,7 @@
 		0F3EF90E1ADEF0BF000A97FF /* UIView+MBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF90D1ADEF0BF000A97FF /* UIView+MBView.m */; };
 		0F3EF9111ADF0C29000A97FF /* MBCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF9101ADF0C29000A97FF /* MBCollectionViewCell.m */; };
 		0F3EF9151ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF9141ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m */; };
+		0FEF3B4A1AE4197E00AA4DD6 /* MBSecondCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEF3B491AE4197E00AA4DD6 /* MBSecondCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,9 @@
 		0F3EF9101ADF0C29000A97FF /* MBCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollectionViewCell.m; sourceTree = "<group>"; };
 		0F3EF9131ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionViewExampleDataSource.h; sourceTree = "<group>"; };
 		0F3EF9141ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollectionViewExampleDataSource.m; sourceTree = "<group>"; };
+		0FDAC4A41AE3F0C300F5638A /* MBCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionViewDataSource.h; sourceTree = "<group>"; };
+		0FEF3B481AE4197E00AA4DD6 /* MBSecondCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSecondCollectionViewCell.h; sourceTree = "<group>"; };
+		0FEF3B491AE4197E00AA4DD6 /* MBSecondCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSecondCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 		0F3EF8DF1ADEECD9000A97FF /* MBCollectionViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				0FDAC4A31AE3F0B600F5638A /* Protocols */,
 				0F3EF9121ADF0FD4000A97FF /* MBCollectionViewDataSources */,
 				0F3EF90B1ADEF096000A97FF /* Categories */,
 				0F3EF9061ADEED73000A97FF /* MBCollectionView */,
@@ -149,6 +154,8 @@
 			children = (
 				0F3EF90F1ADF0C29000A97FF /* MBCollectionViewCell.h */,
 				0F3EF9101ADF0C29000A97FF /* MBCollectionViewCell.m */,
+				0FEF3B481AE4197E00AA4DD6 /* MBSecondCollectionViewCell.h */,
+				0FEF3B491AE4197E00AA4DD6 /* MBSecondCollectionViewCell.m */,
 			);
 			path = MBCollectionViewCells;
 			sourceTree = "<group>";
@@ -169,6 +176,14 @@
 				0F3EF9141ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m */,
 			);
 			path = MBCollectionViewDataSources;
+			sourceTree = "<group>";
+		};
+		0FDAC4A31AE3F0B600F5638A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0FDAC4A41AE3F0C300F5638A /* MBCollectionViewDataSource.h */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F3EF9151ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m in Sources */,
+				0FEF3B4A1AE4197E00AA4DD6 /* MBSecondCollectionViewCell.m in Sources */,
 				0F3EF8E91ADEECD9000A97FF /* ViewController.m in Sources */,
 				0F3EF9111ADF0C29000A97FF /* MBCollectionViewCell.m in Sources */,
 				0F3EF8E61ADEECD9000A97FF /* AppDelegate.m in Sources */,

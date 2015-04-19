@@ -13,5 +13,6 @@
 - (CGFloat)getMinY;
 - (CGFloat)getMaxY;
 - (void)setOriginY:(CGFloat)originY;
+- (void)setHeight:(CGFloat)height;
 - (void)removeAllSubviewsOfClass:(Class)aClass;
 @end

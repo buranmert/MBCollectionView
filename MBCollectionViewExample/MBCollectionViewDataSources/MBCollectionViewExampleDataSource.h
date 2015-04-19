@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MBCollectionView.h"
+#import "MBCollectionViewDataSource.h"
 
 @interface MBCollectionViewExampleDataSource : NSObject <MBCollectionViewDataSource>
 
