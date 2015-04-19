@@ -10,4 +10,7 @@
 
 @interface MBCollectionViewCell : UIView
 @property (nonatomic, strong) NSString *reuseTag;
+
+#warning MUST BE A READONLY PROPERTY!!! MUST BE FIXED!!!
+@property (nonatomic) NSUInteger rowIndex;
 @end

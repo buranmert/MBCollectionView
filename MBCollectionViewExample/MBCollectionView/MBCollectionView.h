@@ -15,11 +15,11 @@ typedef NSUInteger MBRow;
 @protocol MBCollectionViewDataSource <NSObject>
 
 - (MBRow)rowCount;
-- (CGFloat)estimatedItemHeightForRow:(MBRow)row;
 - (MBCollectionViewCell *)viewForRow:(MBRow)row;
 
 @end
 
 @interface MBCollectionView : UIView
 @property (nonatomic, weak) IBOutlet id<MBCollectionViewDataSource> dataSource;
+- (MBCollectionView *)dequeueReusableCell;
 @end

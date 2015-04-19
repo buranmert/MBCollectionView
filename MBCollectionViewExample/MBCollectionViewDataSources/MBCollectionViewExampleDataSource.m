@@ -12,11 +12,7 @@
 @implementation MBCollectionViewExampleDataSource
 
 - (MBRow)rowCount {
-    return 10;
-}
-
-- (CGFloat)estimatedItemHeightForRow:(MBRow)row {
-    return 70.f;
+    return 20;
 }
 
 - (MBCollectionViewCell *)viewForRow:(MBRow)row {

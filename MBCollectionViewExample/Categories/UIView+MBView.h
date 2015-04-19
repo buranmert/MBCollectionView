@@ -10,4 +10,8 @@
 
 @interface UIView (MBView)
 -(NSArray *)addSubview:(UIView *)childView withInset:(UIEdgeInsets)edgeInsets;
+- (CGFloat)getMinY;
+- (CGFloat)getMaxY;
+- (void)setOriginY:(CGFloat)originY;
+- (void)removeAllSubviewsOfClass:(Class)aClass;
 @end

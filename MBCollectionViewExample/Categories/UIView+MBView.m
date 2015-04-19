@@ -28,4 +28,27 @@
     return allConstraintsArray;
 }
 
+- (CGFloat)getMinY {
+    return CGRectGetMinY(self.frame);
+}
+
+- (CGFloat)getMaxY {
+    return CGRectGetMaxY(self.frame);
+}
+
+- (void)setOriginY:(CGFloat)originY {
+    CGRect frame = self.frame;
+    frame.origin.y = originY;
+    [self setFrame:frame];
+}
+
+- (void)removeAllSubviewsOfClass:(Class)aClass {
+    NSArray *copySubviewsArray = [self.subviews copy];
+    for (UIView *subview in copySubviewsArray) {
+        if ([subview isKindOfClass:aClass]) {
+            [subview removeFromSuperview];
+        }
+    }
+}
+
 @end
