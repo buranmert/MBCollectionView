@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+/*
+ A custom navigation controller that provides custom transition. For more details please see MBTransition class
+ */
+
 @interface MBNavigationController : UINavigationController
 
 @end

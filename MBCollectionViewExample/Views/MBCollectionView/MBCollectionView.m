@@ -10,7 +10,7 @@
 #import "MBCollectionViewCell.h"
 #import "UIView+MBView.h"
 
-static const CGFloat kMBCollectionViewHeightThreshold = 20.f;
+static const CGFloat kMBCollectionViewHeightThreshold = 20.f; //collectionView draws new cells if there is no drawn cell within (bounds + threshold) to improve UX
 
 @interface MBCollectionView () <UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;

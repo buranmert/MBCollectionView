@@ -31,15 +31,11 @@
 }
 
 - (void)commonInit {
-    [self setBackgroundColor:[[self class] customBackgroundColor]];
+    //reserved for future use
 }
 
 - (void)prepareForReuse {
     //reserved for future use
-}
-
-+ (UIColor *)customBackgroundColor {
-    return [UIColor redColor];
 }
 
 @end

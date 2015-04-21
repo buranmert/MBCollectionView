@@ -6,6 +6,10 @@
 //  Copyright (c) 2015 Mert Buran. All rights reserved.
 //
 
+/*
+ A dummy/example data source implementation
+ */
+
 #import "MBCollectionViewExampleDataSource.h"
 #import "MBCollectionView.h"
 #import "MBSecondCollectionViewCell.h"

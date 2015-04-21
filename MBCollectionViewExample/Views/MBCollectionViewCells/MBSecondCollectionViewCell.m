@@ -10,8 +10,4 @@
 
 @implementation MBSecondCollectionViewCell
 
-+ (UIColor *)customBackgroundColor {
-    return [UIColor cyanColor];
-}
-
 @end

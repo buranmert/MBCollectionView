@@ -13,5 +13,9 @@
 
 @protocol MBCollectionViewDelegate <NSObject>
 @optional
+/*
+ MBCollectionView returns the cell itself as a cell is tapped.
+ Since MBCollectionViewCell base class provides rowIndex information, delegate can access to the corresponding data model via collectionView if its data source provides a method like [collectionView.dataSource getDataForRow:cell.rowIndex]
+ */
 - (void)collectionView:(MBCollectionView *)collectionView didTapOnCell:(MBCollectionViewCell *)cell;
 @end
