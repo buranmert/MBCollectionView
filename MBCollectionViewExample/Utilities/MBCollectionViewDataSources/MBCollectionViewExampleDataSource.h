@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MBCollectionViewDataSource.h"
 
-@interface MBCollectionViewExampleDataSource : NSObject <MBCollectionViewDataSource>
+@class MBData;
 
+@interface MBCollectionViewExampleDataSource : NSObject <MBCollectionViewDataSource>
+- (MBData *)getDataForRow:(MBRow)row;
 @end
