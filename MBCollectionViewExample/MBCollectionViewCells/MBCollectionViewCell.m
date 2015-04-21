@@ -13,13 +13,25 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self != nil) {
-        UILabel *label = [[UILabel alloc] initWithFrame:frame];
-        [label setBackgroundColor:[UIColor clearColor]];
-        [self addSubview:label];
-        _textLabel = label;
-        [self setBackgroundColor:[[self class] customBackgroundColor]];
+        [self commonInit];
     }
     return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self != nil) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)awakeFromNib {
+    [self commonInit];
+}
+
+- (void)commonInit {
+    [self setBackgroundColor:[[self class] customBackgroundColor]];
 }
 
 - (void)prepareForReuse {

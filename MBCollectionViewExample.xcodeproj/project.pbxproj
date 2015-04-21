@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F2AE6D51AE5AFE1002E8849 /* MBCollectionViewFirstXibCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F2AE6D41AE5AFE1002E8849 /* MBCollectionViewFirstXibCell.m */; };
+		0F2AE6D71AE5AFF6002E8849 /* MBCollectionViewFirstXibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F2AE6D61AE5AFF6002E8849 /* MBCollectionViewFirstXibCell.xib */; };
 		0F3EF8E31ADEECD9000A97FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF8E21ADEECD9000A97FF /* main.m */; };
 		0F3EF8E61ADEECD9000A97FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF8E51ADEECD9000A97FF /* AppDelegate.m */; };
 		0F3EF8E91ADEECD9000A97FF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF8E81ADEECD9000A97FF /* ViewController.m */; };
@@ -18,6 +20,8 @@
 		0F3EF90E1ADEF0BF000A97FF /* UIView+MBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF90D1ADEF0BF000A97FF /* UIView+MBView.m */; };
 		0F3EF9111ADF0C29000A97FF /* MBCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF9101ADF0C29000A97FF /* MBCollectionViewCell.m */; };
 		0F3EF9151ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3EF9141ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m */; };
+		0F491E361AE5BF5D002B2D2F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F491E351AE5BF5D002B2D2F /* MapKit.framework */; };
+		0F491E3B1AE5C6B6002B2D2F /* MBCollectionViewExampleDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F491E3A1AE5C6B6002B2D2F /* MBCollectionViewExampleDelegate.m */; };
 		0FEF3B4A1AE4197E00AA4DD6 /* MBSecondCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FEF3B491AE4197E00AA4DD6 /* MBSecondCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F2AE6D31AE5AFE1002E8849 /* MBCollectionViewFirstXibCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionViewFirstXibCell.h; sourceTree = "<group>"; };
+		0F2AE6D41AE5AFE1002E8849 /* MBCollectionViewFirstXibCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollectionViewFirstXibCell.m; sourceTree = "<group>"; };
+		0F2AE6D61AE5AFF6002E8849 /* MBCollectionViewFirstXibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBCollectionViewFirstXibCell.xib; sourceTree = "<group>"; };
 		0F3EF8DD1ADEECD9000A97FF /* MBCollectionViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBCollectionViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F3EF8E11ADEECD9000A97FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F3EF8E21ADEECD9000A97FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,9 +60,13 @@
 		0F3EF9101ADF0C29000A97FF /* MBCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollectionViewCell.m; sourceTree = "<group>"; };
 		0F3EF9131ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionViewExampleDataSource.h; sourceTree = "<group>"; };
 		0F3EF9141ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollectionViewExampleDataSource.m; sourceTree = "<group>"; };
+		0F491E351AE5BF5D002B2D2F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0F491E391AE5C6B6002B2D2F /* MBCollectionViewExampleDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionViewExampleDelegate.h; sourceTree = "<group>"; };
+		0F491E3A1AE5C6B6002B2D2F /* MBCollectionViewExampleDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBCollectionViewExampleDelegate.m; sourceTree = "<group>"; };
 		0FDAC4A41AE3F0C300F5638A /* MBCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionViewDataSource.h; sourceTree = "<group>"; };
 		0FEF3B481AE4197E00AA4DD6 /* MBSecondCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBSecondCollectionViewCell.h; sourceTree = "<group>"; };
 		0FEF3B491AE4197E00AA4DD6 /* MBSecondCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSecondCollectionViewCell.m; sourceTree = "<group>"; };
+		0FEF3B4B1AE4257100AA4DD6 /* MBCollectionViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBCollectionViewDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F491E361AE5BF5D002B2D2F /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +109,8 @@
 		0F3EF8DF1ADEECD9000A97FF /* MBCollectionViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				0F491E381AE5C69D002B2D2F /* MBCollectionViewDelegates */,
+				0F491E371AE5BF8E002B2D2F /* Frameworks */,
 				0FDAC4A31AE3F0B600F5638A /* Protocols */,
 				0F3EF9121ADF0FD4000A97FF /* MBCollectionViewDataSources */,
 				0F3EF90B1ADEF096000A97FF /* Categories */,
@@ -156,6 +170,9 @@
 				0F3EF9101ADF0C29000A97FF /* MBCollectionViewCell.m */,
 				0FEF3B481AE4197E00AA4DD6 /* MBSecondCollectionViewCell.h */,
 				0FEF3B491AE4197E00AA4DD6 /* MBSecondCollectionViewCell.m */,
+				0F2AE6D31AE5AFE1002E8849 /* MBCollectionViewFirstXibCell.h */,
+				0F2AE6D41AE5AFE1002E8849 /* MBCollectionViewFirstXibCell.m */,
+				0F2AE6D61AE5AFF6002E8849 /* MBCollectionViewFirstXibCell.xib */,
 			);
 			path = MBCollectionViewCells;
 			sourceTree = "<group>";
@@ -178,10 +195,28 @@
 			path = MBCollectionViewDataSources;
 			sourceTree = "<group>";
 		};
+		0F491E371AE5BF8E002B2D2F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F491E351AE5BF5D002B2D2F /* MapKit.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		0F491E381AE5C69D002B2D2F /* MBCollectionViewDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				0F491E391AE5C6B6002B2D2F /* MBCollectionViewExampleDelegate.h */,
+				0F491E3A1AE5C6B6002B2D2F /* MBCollectionViewExampleDelegate.m */,
+			);
+			path = MBCollectionViewDelegates;
+			sourceTree = "<group>";
+		};
 		0FDAC4A31AE3F0B600F5638A /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				0FDAC4A41AE3F0C300F5638A /* MBCollectionViewDataSource.h */,
+				0FEF3B4B1AE4257100AA4DD6 /* MBCollectionViewDelegate.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -266,6 +301,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F2AE6D71AE5AFF6002E8849 /* MBCollectionViewFirstXibCell.xib in Resources */,
 				0F3EF8EC1ADEECD9000A97FF /* Main.storyboard in Resources */,
 				0F3EF8F11ADEECD9000A97FF /* LaunchScreen.xib in Resources */,
 				0F3EF8EE1ADEECD9000A97FF /* Images.xcassets in Resources */,
@@ -289,7 +325,9 @@
 				0F3EF9151ADF0FF1000A97FF /* MBCollectionViewExampleDataSource.m in Sources */,
 				0FEF3B4A1AE4197E00AA4DD6 /* MBSecondCollectionViewCell.m in Sources */,
 				0F3EF8E91ADEECD9000A97FF /* ViewController.m in Sources */,
+				0F491E3B1AE5C6B6002B2D2F /* MBCollectionViewExampleDelegate.m in Sources */,
 				0F3EF9111ADF0C29000A97FF /* MBCollectionViewCell.m in Sources */,
+				0F2AE6D51AE5AFE1002E8849 /* MBCollectionViewFirstXibCell.m in Sources */,
 				0F3EF8E61ADEECD9000A97FF /* AppDelegate.m in Sources */,
 				0F3EF8E31ADEECD9000A97FF /* main.m in Sources */,
 				0F3EF90E1ADEF0BF000A97FF /* UIView+MBView.m in Sources */,

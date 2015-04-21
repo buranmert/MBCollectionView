@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MBCollectionViewCell : UIView
-@property (nonatomic, weak) UILabel *textLabel;
+#warning MUST BE READONLY!
 @property (nonatomic) NSUInteger rowIndex;
 - (void)prepareForReuse;
 + (UIColor *)customBackgroundColor;

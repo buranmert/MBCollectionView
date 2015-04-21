@@ -9,8 +9,12 @@
 #import "MBCollectionViewExampleDataSource.h"
 #import "MBCollectionView.h"
 #import "MBSecondCollectionViewCell.h"
+#import "MBCollectionViewFirstXibCell.h"
 
-#import "UIView+MBView.h"
+@interface MBData : NSObject
+@end
+@implementation MBData
+@end
 
 @implementation MBCollectionViewExampleDataSource
 
@@ -19,38 +23,27 @@
 }
 
 - (MBCollectionViewCell *)collectionView:(MBCollectionView *)collectionView viewForRow:(MBRow)row {
-    MBCollectionViewCell *cell;
-    if (row < 10) {
-        cell = [collectionView dequeueReusableCellForRow:row forClass:[MBCollectionViewCell class]];
-        if (cell == nil) {
-            cell = [[MBCollectionViewCell alloc] initWithFrame:CGRectMake(0.f, 0.f, 50.f, 20.f)];
-        }
-        [cell setFrame:CGRectMake(0.f, 0.f, 50.f, 20.f)];
+    MBCollectionViewFirstXibCell *cell;
+    cell = (MBCollectionViewFirstXibCell *)[collectionView dequeueReusableCellForRow:row forClass:[MBCollectionViewFirstXibCell class]];
+    if (cell == nil) {
+        cell = [MBCollectionViewFirstXibCell initWithNibOfCell];
     }
-    else if (row < 20) {
-        cell = [collectionView dequeueReusableCellForRow:row forClass:[MBSecondCollectionViewCell class]];
-        if (cell == nil) {
-            cell = [[MBSecondCollectionViewCell alloc] initWithFrame:CGRectMake(0.f, 0.f, 100.f, 80.f)];
-        }
-        [cell setFrame:CGRectMake(0.f, 0.f, 100.f, 80.f)];
-    }
-    else if (row < 30) {
-        cell = [collectionView dequeueReusableCellForRow:row forClass:[MBCollectionViewCell class]];
-        if (cell == nil) {
-            cell = [[MBCollectionViewCell alloc] initWithFrame:CGRectMake(0.f, 0.f, 150.f, 60.f)];
-        }
-        [cell setFrame:CGRectMake(0.f, 0.f, 150.f, 60.f)];
-    }
-    else {
-        cell = [collectionView dequeueReusableCellForRow:row forClass:[MBSecondCollectionViewCell class]];
-        if (cell == nil) {
-            cell = [[MBSecondCollectionViewCell alloc] initWithFrame:CGRectMake(0.f, 0.f, 200.f, 140.f)];
-        }
-        [cell setFrame:CGRectMake(0.f, 0.f, 200.f, 140.f)];
-    }
-    [cell.textLabel setFrame:cell.bounds];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%lu", (unsigned long)row]];
+    [cell setCellMode:(row % 2 ? MBCellModeMapView : MBCellModeImageView)];
+    MBData *dataForRow = [self getDataForRow:row];
+    [self configureCell:cell withData:dataForRow];
+    [cell sizeToFit];
     return cell;
+}
+
+- (void)configureCell:(MBCollectionViewFirstXibCell *)cell withData:(MBData *)data {
+    [cell setText:NSLocalizedString(@"THIS IS TOP LABEL THIS IS TOP LABEL THIS IS TOP LABEL THIS IS TOP LABEL", @"Configuring Cell") forLabelPosition:MBCellLabelPositionTop];
+    [cell setText:NSLocalizedString(@"THIS IS BOTTOM LABEL THIS IS BOTTOM LABEL THIS IS BOTTOM LABEL THIS IS BOTTOM LABEL THIS IS BOTTOM LABEL THIS IS BOTTOM LABEL THIS IS BOTTOM LABEL THIS IS BOTTOM LABEL", @"Configuring Cell") forLabelPosition:MBCellLabelPositionBottom];
+    [cell setImage:[UIImage imageNamed:@"Lena"]];
+}
+
+- (MBData *)getDataForRow:(MBRow)row {
+    MBData *data = [MBData new];
+    return data;
 }
 
 @end

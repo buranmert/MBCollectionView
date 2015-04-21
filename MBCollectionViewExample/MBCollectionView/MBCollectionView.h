@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "MBCollectionViewDataSource.h"
+#import "MBCollectionViewDelegate.h"
 
 @class MBCollectionViewCell;
 
 @interface MBCollectionView : UIView
 @property (nonatomic, weak) IBOutlet id<MBCollectionViewDataSource> dataSource;
+@property (nonatomic, weak) IBOutlet id<MBCollectionViewDelegate> delegate;
 - (MBCollectionViewCell *)dequeueReusableCellForRow:(MBRow)row forClass:(Class)aClass;
 - (void)reloadCollectionViewWithCompletionHandler:(void (^)())completion;
 @end

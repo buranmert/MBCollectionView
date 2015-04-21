@@ -10,7 +10,7 @@
 #import "MBCollectionViewCell.h"
 #import "UIView+MBView.h"
 
-static const CGFloat kMBCollectionViewHeightThreshold = 40.f;
+static const CGFloat kMBCollectionViewHeightThreshold = 20.f;
 
 @interface MBCollectionView () <UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -50,7 +50,31 @@ static const CGFloat kMBCollectionViewHeightThreshold = 40.f;
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
     [self.scrollView setDelegate:self];
     [self.scrollView setBackgroundColor:[UIColor yellowColor]];
+    [self.scrollView setShowsVerticalScrollIndicator:YES];
+    [self.scrollView setShowsHorizontalScrollIndicator:YES];
+    [self.scrollView setDirectionalLockEnabled:YES];
     [self addSubview:self.scrollView];
+    
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewTapped:)];
+    [self.scrollView addGestureRecognizer:recognizer];
+}
+
+- (void)scrollViewTapped:(UITapGestureRecognizer *)recognizer {
+    CGPoint tappedPoint = [recognizer locationInView:recognizer.view];
+    UIView *tappedView = [recognizer.view hitTest:tappedPoint withEvent:nil];
+    MBCollectionViewCell *tappedCell = nil;
+    while ([tappedView superview] != nil) {
+        if ([tappedView isKindOfClass:[MBCollectionViewCell class]]) {
+            tappedCell = (MBCollectionViewCell *)tappedView;
+            break;
+        }
+        else {
+            tappedView = [tappedView superview];
+        }
+    }
+    if (tappedCell != nil && [self.delegate respondsToSelector:@selector(collectionView:didTapOnCell:)]) {
+        [self.delegate collectionView:self didTapOnCell:tappedCell];
+    }
 }
 
 - (void)layoutSubviews {
@@ -83,15 +107,18 @@ static const CGFloat kMBCollectionViewHeightThreshold = 40.f;
     MBRow row = 0;
     MBRow totalRowCount = [self.dataSource rowCount];
     CGFloat posY = 0.f;
+    CGFloat maxWidth = CGRectGetWidth(self.scrollView.bounds);
     while (posY <= CGRectGetHeight(self.scrollView.bounds) + kMBCollectionViewHeightThreshold && row < totalRowCount) {
         MBCollectionViewCell *cell = [self addVisibleCellToRow:row withContentSizeCorrection:NO];
+        CGFloat cellWidth = CGRectGetWidth(cell.bounds);
+        maxWidth = MAX(maxWidth, cellWidth);
         CGFloat cellHeight = CGRectGetHeight(cell.bounds);
         posY += cellHeight;
         row++;
     }
     CGFloat estimatedAverageCellHeight = (posY / row);
     CGFloat estimatedContentHeight = estimatedAverageCellHeight * totalRowCount;
-    CGSize contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.bounds), estimatedContentHeight);
+    CGSize contentSize = CGSizeMake(maxWidth, estimatedContentHeight);
     [self.scrollView setContentSize:contentSize];
     for (MBRow i = row + 1; i <= totalRowCount; i++) {
         [self.itemHeightsArray addObject:@(estimatedAverageCellHeight)];
@@ -104,7 +131,7 @@ static const CGFloat kMBCollectionViewHeightThreshold = 40.f;
 #pragma mark - UIScrollViewDelegate methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if ([MBCollectionView isBounds:scrollView.bounds withinContentSize:scrollView.contentSize] && self.visibleItemViews.count > 0) {
+    if ([MBCollectionView isBounds:scrollView.bounds withinContentSize:scrollView.contentSize]) {
         CGFloat topBorder = 0.f;
         CGFloat bottomBorder = scrollView.contentSize.height;
         CGFloat minVisibleY = CGRectGetMinY(scrollView.bounds);
@@ -113,7 +140,7 @@ static const CGFloat kMBCollectionViewHeightThreshold = 40.f;
         BOOL needsToRemoveCellFromTop = YES;
         BOOL needsToAddCellToTop = YES;
         MBCollectionViewCell *topVisibleCell;
-        while (needsToRemoveCellFromTop || needsToAddCellToTop) {
+        while ((needsToRemoveCellFromTop || needsToAddCellToTop) && self.visibleItemViews.count > 0) {
             topVisibleCell = [self.visibleItemViews firstObject];
             needsToRemoveCellFromTop = ([topVisibleCell getMaxY] < minVisibleY - kMBCollectionViewHeightThreshold);
             needsToAddCellToTop = ([topVisibleCell getMinY] > MAX(topBorder, minVisibleY - kMBCollectionViewHeightThreshold));
@@ -130,7 +157,7 @@ static const CGFloat kMBCollectionViewHeightThreshold = 40.f;
         BOOL needsToRemoveCellFromBottom = YES;
         BOOL needsToAddCellToBottom = YES;
         MBCollectionViewCell *bottomVisibleCell;
-        while (needsToRemoveCellFromBottom || needsToAddCellToBottom) {
+        while ((needsToRemoveCellFromBottom || needsToAddCellToBottom) && self.visibleItemViews.count > 0) {
             bottomVisibleCell = [self.visibleItemViews lastObject];
             needsToRemoveCellFromBottom = [bottomVisibleCell getMinY] >  maxVisibleY + kMBCollectionViewHeightThreshold;
             needsToAddCellToBottom = [bottomVisibleCell getMaxY] < MIN(bottomBorder, maxVisibleY + kMBCollectionViewHeightThreshold);
@@ -148,10 +175,11 @@ static const CGFloat kMBCollectionViewHeightThreshold = 40.f;
 
 #pragma mark - Add/Remove Cell methods
 
-- (MBCollectionViewCell *)getViewForRow:(MBRow)row; {
+- (MBCollectionViewCell *)getViewForRow:(MBRow)row {
     //!!!TODO: put itemView into a container view!!!
     MBCollectionViewCell *itemView = [self.dataSource collectionView:self viewForRow:row];
     [itemView setRowIndex:row];
+    [itemView setOriginX:0.f];
     return itemView;
 }
 
@@ -167,12 +195,12 @@ static const CGFloat kMBCollectionViewHeightThreshold = 40.f;
 - (MBCollectionViewCell *)addVisibleCellToRow:(MBRow)row withContentSizeCorrection:(BOOL)correctionNeeded {
     if (row < [self.dataSource rowCount]) {
         MBCollectionViewCell *visibleCell = [self getViewForRow:row];
-        CGFloat cellHeight = CGRectGetHeight(visibleCell.bounds);
+        CGSize cellSize = visibleCell.bounds.size;
         if (self.isHeightCorrectionFinished == NO) {
             if (correctionNeeded) {
-                [self correctContentSizeWithActualHeight:cellHeight forRow:row];
+                [self correctContentSizeWithActualSize:cellSize forRow:row];
             }
-            [self setActualHeight:cellHeight forRow:row];
+            [self setActualHeight:cellSize.height forRow:row];
             if (row + 1 >= [self.dataSource rowCount]) {
                 self.isHeightCorrectionFinished = YES;
             }
@@ -187,6 +215,10 @@ static const CGFloat kMBCollectionViewHeightThreshold = 40.f;
             return obj1.rowIndex > obj2.rowIndex;
         }];
         [self.scrollView addSubview:visibleCell];
+        
+        //workaround for strange scrollIndicator shadowing issue
+        [self.scrollView sendSubviewToBack:visibleCell];
+        ///
         return visibleCell;
     }
     else {
@@ -194,12 +226,13 @@ static const CGFloat kMBCollectionViewHeightThreshold = 40.f;
     }
 }
 
-- (void)correctContentSizeWithActualHeight:(CGFloat)actualHeight forRow:(MBRow)row {
+- (void)correctContentSizeWithActualSize:(CGSize)actualSize forRow:(MBRow)row {
+    CGFloat widthDifference = MAX(0.f, actualSize.width - self.scrollView.contentSize.width);
     CGFloat expectedHeight = [[self.itemHeightsArray objectAtIndex:row] floatValue];
-    CGFloat difference = actualHeight - expectedHeight;
-    if (difference != 0.f) {
+    CGFloat difference = actualSize.height - expectedHeight;
+    if (difference != 0.f || widthDifference > 0.f) {
         CGSize contentSize = self.scrollView.contentSize;
-        [self.scrollView setContentSize:CGSizeMake(contentSize.width, contentSize.height + difference)];
+        [self.scrollView setContentSize:CGSizeMake(contentSize.width + widthDifference, contentSize.height + difference)];
     }
 }
 
