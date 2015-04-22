@@ -38,4 +38,10 @@
     //reserved for future use
 }
 
+- (void)setRowIndex:(MBRow)newRowIndex {
+    if (_rowIndex != newRowIndex) {
+        _rowIndex = newRowIndex;
+    }
+}
+
 @end

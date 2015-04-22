@@ -8,19 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NSUInteger MBRow;
+
 /*
  base cell class for MBCollectionView
  */
 @interface MBCollectionViewCell : UIView
-#warning MUST BE READONLY! MUST BE FIXED!
-/*
- cell provide index information (but it must be read-only to avoid wrong index values)
- */
-@property (nonatomic) NSUInteger rowIndex;
-
+@property (nonatomic, readonly) MBRow rowIndex;
 /*
  prepareForReuse method is called just after a cell is dequeued from cell pool in MBCollectionView
  */
 - (void)prepareForReuse;
-
 @end

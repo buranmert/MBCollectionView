@@ -10,7 +10,12 @@
 #import "MBCollectionViewDataSource.h"
 #import "MBCollectionViewDelegate.h"
 
-@class MBCollectionViewCell;
+@interface MBCollectionViewCell (MBCollectionViewExtension)
+/*
+ cell provide index information (but it must be read-only to avoid wrong index values)
+ */
+//@property (nonatomic, readonly) MBRow rowIndex;
+@end
 
 @interface MBCollectionView : UIView
 @property (nonatomic, weak) IBOutlet id<MBCollectionViewDataSource> dataSource;

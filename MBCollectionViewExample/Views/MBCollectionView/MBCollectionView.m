@@ -12,6 +12,10 @@
 
 static const CGFloat kMBCollectionViewHeightThreshold = 20.f; //collectionView draws new cells if there is no drawn cell within (bounds + threshold) to improve UX
 
+@interface MBCollectionViewCell ()
+- (void)setRowIndex:(MBRow)newRowIndex;
+@end
+
 @interface MBCollectionView () <UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableDictionary *itemViewPool;

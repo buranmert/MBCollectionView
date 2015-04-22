@@ -7,11 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MBCollectionViewCell.h"
 
 @class MBCollectionView;
-@class MBCollectionViewCell;
-
-typedef NSUInteger MBRow;
 
 /*
  Data Source protocol is as simple as it can be.
